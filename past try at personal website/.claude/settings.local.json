@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\Guhan Venkat\\\\projects\\\\personal\\\\personal website\")",
+      "Bash(curl -s -o /dev/null -w \"EffectComposer:    %{http_code}\\\\n\" \"https://esm.sh/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js\")",
+      "Bash(curl -s -o /dev/null -w \"UnrealBloomPass:   %{http_code}\\\\n\" \"https://esm.sh/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js\")",
+      "Bash(curl -s -o /dev/null -w \"RenderPass:        %{http_code}\\\\n\" \"https://esm.sh/three@0.160.0/examples/jsm/postprocessing/RenderPass.js\")",
+      "Bash(curl -s -o /dev/null -w \"OutputPass:        %{http_code}\\\\n\" \"https://esm.sh/three@0.160.0/examples/jsm/postprocessing/OutputPass.js\")"
+    ]
+  }
+}

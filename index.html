@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guhan Venkat — ML researcher. Builder.</title>
+  <meta name="description" content="Personal portfolio of Guhan Venkat — ML researcher, builder, high schooler. Brain-computer systems, clinical-trial NLP, behavioral neuroscience tooling." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Global Rainbow River — fixed canvas behind everything -->
+  <canvas id="river-canvas" aria-hidden="true"></canvas>
+
+  <!-- Per-chapter canvases — each pinned to the right 50vw -->
+  <div class="chapter-canvas-wrap" data-canvas="03">
+    <canvas class="chapter-canvas" data-canvas="03" aria-hidden="true"></canvas>
+  </div>
+  <div class="chapter-canvas-wrap" data-canvas="04">
+    <canvas class="chapter-canvas" data-canvas="04" aria-hidden="true"></canvas>
+  </div>
+  <div class="chapter-canvas-wrap" data-canvas="05">
+    <canvas class="chapter-canvas" data-canvas="05" aria-hidden="true"></canvas>
+  </div>
+  <div class="chapter-canvas-wrap" data-canvas="06">
+    <canvas class="chapter-canvas" data-canvas="06" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Fixed UI overlay -->
+  <header class="overlay overlay-tl">GV</header>
+  <header class="overlay overlay-tr">
+    <span id="chapter-marker">01</span><span class="overlay-sep">/</span><span class="overlay-total">07</span>
+  </header>
+
+  <main>
+
+    <!-- ====== CH 01 — HERO ====== -->
+    <section class="chapter chapter-01" data-chapter="01" id="ch-01">
+      <div class="ch-content hero-content">
+        <h1 class="hero-name">
+          <span class="hero-line" data-text="GUHAN">GUHAN</span>
+          <span class="hero-line" data-text="VENKAT">VENKAT</span>
+        </h1>
+        <p class="hero-subtitle">ml researcher. builder. high schooler.</p>
+      </div>
+      <div class="hero-meta">
+        <span>portfolio / 2026</span>
+        <span>edition 01</span>
+      </div>
+      <div class="hero-scroll">scroll</div>
+    </section>
+
+    <!-- ====== CH 02 — ABOUT ====== -->
+    <section class="chapter chapter-02" data-chapter="02" id="ch-02">
+      <header class="ch-opener">
+        <div class="ch-num">02</div>
+        <div class="ch-title-block">
+          <div class="ch-eyebrow">chapter</div>
+          <h2 class="ch-title">About</h2>
+        </div>
+      </header>
+      <div class="ch-content about-content">
+        <h2 class="about-line"><span>I build systems that <em>read brains</em>,</span></h2>
+        <h2 class="about-line"><span>track <em>zebrafish</em>, and give deaf users</span></h2>
+        <h2 class="about-line"><span>a <em>voice</em> in meetings —</span></h2>
+        <h2 class="about-line"><span>all before senior year.</span></h2>
+        <p class="about-meta">University of Pennsylvania · Children's Hospital of Philadelphia</p>
+        <p class="about-meta">Skillman, NJ · graduating 2028</p>
+      </div>
+    </section>
+
+    <!-- ====== CH 03 — NEURAL ATTENTION DASHBOARD ====== -->
+    <section class="chapter chapter-03" data-chapter="03" id="ch-03">
+      <header class="ch-opener">
+        <div class="ch-num">03</div>
+        <div class="ch-title-block">
+          <div class="ch-eyebrow">live · 20,484 vertices</div>
+          <h2 class="ch-title">Neural Attention Dashboard</h2>
+        </div>
+      </header>
+      <div class="ch-content">
+        <p class="ch-beat" data-beat="0">Short-form video in.</p>
+        <p class="ch-beat" data-beat="1">V-JEPA2 features extracted from the occipital stream.</p>
+        <p class="ch-beat" data-beat="2">TRIBE v2 loaded. 20,484 cortical vertices predicted per timepoint.</p>
+        <p class="ch-beat" data-beat="3">Glasser–Yeo atlas. Five functional ROI groups.</p>
+        <p class="ch-beat" data-beat="4">Live heatmap. Local RTX 5060 Ti. 16 GB VRAM. No quantization.</p>
+        <p class="ch-beat ch-climax" data-beat="5">20,484 cortical vertices. One local GPU. <span class="lime">Real-time</span>.</p>
+      </div>
+    </section>
+
+    <!-- ====== CH 04 — RESEARCH LABS ====== -->
+    <section class="chapter chapter-04" data-chapter="04" id="ch-04">
+      <header class="ch-opener">
+        <div class="ch-num">04</div>
+        <div class="ch-title-block">
+          <div class="ch-eyebrow">two labs · one semester</div>
+          <h2 class="ch-title">Research</h2>
+        </div>
+      </header>
+      <div class="ch-content">
+        <p class="ch-beat" data-beat="0">Two labs. Two universities. One semester.</p>
+        <div class="ch-beat-block" data-beat="1">
+          <p class="ch-lab">EISCH LAB — UPenn / CHOP</p>
+          <p class="ch-beat-body">A no-code SLEAP GUI that erases manual annotation — turning weeks of frame-by-frame labeling into minutes.</p>
+        </div>
+        <div class="ch-beat-block" data-beat="2">
+          <p class="ch-lab">MUKHERJEE LAB — UPenn</p>
+          <p class="ch-beat-body">A facial landmark model for schizophrenia phenotyping in mice — tracing prefrontal–hippocampal circuit dysfunction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CH 05 — CLINICAL TRIAL OUTCOME PREDICTOR ====== -->
+    <section class="chapter chapter-05" data-chapter="05" id="ch-05">
+      <header class="ch-opener">
+        <div class="ch-num">05</div>
+        <div class="ch-title-block">
+          <div class="ch-eyebrow">bayesian · biobert</div>
+          <h2 class="ch-title">Clinical Trial Outcome Predictor</h2>
+        </div>
+      </header>
+      <div class="ch-content">
+        <p class="ch-beat" data-beat="0">Phase II is 8% likely to graduate.</p>
+        <p class="ch-beat" data-beat="1">Each token in the protocol contributes a weighted signal.</p>
+        <p class="ch-beat" data-beat="2">Bayesian posterior over the trial's primary endpoint.</p>
+        <p class="ch-beat" data-beat="3">Fine-tuned BioBERT. Built in partnership with Google LLC.</p>
+        <p class="ch-beat ch-climax" data-beat="4">Not just a probability score — <span class="lime">a reason</span>.</p>
+      </div>
+    </section>
+
+    <!-- ====== CH 06 — TONESPEECH ====== -->
+    <section class="chapter chapter-06" data-chapter="06" id="ch-06">
+      <header class="ch-opener">
+        <div class="ch-num">06</div>
+        <div class="ch-title-block">
+          <div class="ch-eyebrow">mediapipe · 468 landmarks</div>
+          <h2 class="ch-title">TONESPEECH</h2>
+        </div>
+      </header>
+      <div class="ch-content">
+        <p class="ch-beat" data-beat="0">MediaPipe reads 468 landmarks in real time.</p>
+        <p class="ch-beat" data-beat="1">Geometric displacement ratios compute emotion intensity — 0 to 1.</p>
+        <p class="ch-beat" data-beat="2">The AU vector feeds the LLM for emotional reconstruction.</p>
+        <p class="ch-beat ch-climax" data-beat="3">Routed live into Zoom. No captions. No screen sharing. Just a <span class="lime">voice</span>.</p>
+      </div>
+    </section>
+
+    <!-- ====== CH 07 — CONTACT ====== -->
+    <section class="chapter chapter-07" data-chapter="07" id="ch-07">
+      <div class="ch-content contact-content">
+        <p class="contact-prelude">— end of file —</p>
+        <h2 class="contact-title">Let's build something.</h2>
+        <a href="mailto:guhan.venkatachalapathi@gmail.com" class="contact-email">guhan.venkatachalapathi@gmail.com</a>
+        <div class="contact-socials">
+          <a href="https://github.com/guhanvenkat" target="_blank" rel="noopener noreferrer" class="contact-link">GITHUB</a>
+          <span class="contact-sep">/</span>
+          <a href="https://linkedin.com/in/guhanvenkat" target="_blank" rel="noopener noreferrer" class="contact-link">LINKEDIN</a>
+        </div>
+        <p class="contact-foot">© 2026 Guhan Venkat · designed &amp; built from scratch</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Subtle film grain overlay -->
+  <div id="grain" aria-hidden="true"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
