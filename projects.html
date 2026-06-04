@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Guhan Venkat</title>
+  <meta name="description" content="Selected projects by Guhan Venkat: RIBOSCOPE, EEG seizure prediction, NEXUS-alpha, neural attention dashboard, ToneSpeech, clinical-trial outcome predictor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("reveal-on")</script>
+</head>
+<body>
+  <a class="skip-link" href="#project-cards">Skip to content</a>
+  <canvas id="river-canvas" aria-hidden="true"></canvas>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a class="nav-brand" href="index.html">GV</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="index.html">Me</a></li>
+      <li><a href="projects.html" data-page="projects.html">Projects</a></li>
+      <li><a href="experience.html" data-page="experience.html">Experience</a></li>
+      <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <!-- Full-screen living network (desktop). Falls back to the cards below. -->
+    <div class="pnet" id="pnet" aria-hidden="true">
+      <canvas class="pnet__canvas"></canvas>
+      <div class="pnet__head">
+        <span class="kicker">Selected work</span>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-sub">A living web of what I've built. The bright nodes are projects, scattered through the network. Hover one to open it, and drift your cursor through the web to stir it.</p>
+      </div>
+      <div class="pnet__panel" id="pnet-panel"></div>
+    </div>
+
+    <!-- Fallback / data source (mobile + no-JS) -->
+    <div class="page" id="project-fallback">
+      <header class="page-head" data-reveal>
+        <span class="kicker">Selected work</span>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-sub">Six things I've built, from RNA interpretability to real-time sign-language speech.</p>
+      </header>
+      <div class="cards" id="project-cards">
+
+        <article class="card" data-reveal data-short="RIBOSCOPE">
+          <div class="card-top"><h2 class="card-title">RIBOSCOPE</h2><span class="card-venue">In progress · targeting Nature Methods, ISEF 2027</span></div>
+          <p class="card-sub">Mechanistic interpretability of RNA foundation models</p>
+          <p class="card-desc">The first mechanistic-interpretability framework for RNA foundation models, training BatchTopK SAEs and cross-layer transcoders across four architecturally distinct models to recover biological circuits learned with zero labeled data.</p>
+          <ul class="card-metrics">
+            <li><span class="hl">84</span> reciprocal feature pairs (Jaccard ≥ 0.5)</li>
+            <li>SAE EV <span class="hl">0.882</span> (RNA-FM) / 0.674 (ErnieRNA)</li>
+            <li>Validated on MALAT1, NEAT1, BACE1-AS vs. MPRA + DMS-MaPseq</li>
+          </ul>
+          <ul class="tags"><li>PyTorch</li><li>BatchTopK SAE</li><li>Cross-layer Transcoders</li><li>RNA-FM</li><li>ErnieRNA</li><li>RNA-MSM</li><li>OmniGenome</li><li>CUDA</li></ul>
+        </article>
+
+        <article class="card" data-reveal data-short="EEG">
+          <div class="card-top"><h2 class="card-title">EEG Seizure Prediction</h2><span class="card-venue">Targeting Frontiers in Neuroinformatics, ISEF 2027</span></div>
+          <p class="card-sub">A cross-cohort domain-gap study</p>
+          <p class="card-desc">Trained seizure-prediction models on pediatric CHB-MIT EEG and zero-shot evaluated on adult Siena EEG. The finding: normalization strategy, not architecture, is the primary driver of cross-dataset generalization failure.</p>
+          <ul class="card-metrics">
+            <li>InstanceNorm recovered zero-shot F1 <span class="hl">0.025 → 0.281</span></li>
+            <li>Matched domain-adversarial methods needing target data (p = 0.0005)</li>
+            <li>CNN / Transformer / GNN benchmarked bidirectionally</li>
+          </ul>
+          <ul class="tags"><li>PyTorch</li><li>CNN</li><li>Transformer</li><li>GNN</li><li>CHB-MIT</li><li>Siena</li></ul>
+        </article>
+
+        <article class="card" data-reveal data-short="NEXUS-α">
+          <div class="card-top"><h2 class="card-title">NEXUS-α</h2><span class="card-venue">Multi-modal frontier trading model</span></div>
+          <p class="card-sub">Tri-modal tokenization → Inverted-Mamba backbone</p>
+          <p class="card-desc">A tri-modal price tokenization pipeline (Chronos quantile bins, VisionTS patches, float embeddings) fused via cross-attention into an Inverted-Mamba backbone, with a 3-tier sparse-MoE router and a DQN execution agent trained via RL from market feedback.</p>
+          <ul class="card-metrics">
+            <li><span class="hl">36.2%</span> simulated annualized return on NQ futures</li>
+            <li>Sharpe 2.11 · 63.4% win rate · 8.3% max drawdown</li>
+            <li><span class="hl">+11.4%</span> risk-adjusted alpha over 6 months</li>
+          </ul>
+          <ul class="tags"><li>Mamba / SSM</li><li>iTransformer</li><li>Chronos</li><li>VisionTS</li><li>FinGPT</li><li>Sparse MoE</li><li>RLMF</li></ul>
+        </article>
+
+        <article class="card" data-reveal data-short="Neural Dashboard">
+          <div class="card-top"><h2 class="card-title">Neural Attention Dashboard</h2><span class="card-venue">Brain-encoding on short-form video</span></div>
+          <p class="card-sub">fMRI activation predicted per timepoint</p>
+          <p class="card-desc">Runs a cortical-encoding model on short-form video to predict fMRI activation across every cortical vertex per timepoint (V-JEPA2 features), then correlates on-screen objects with a derived neural-engagement signal.</p>
+          <ul class="card-metrics">
+            <li><span class="hl">20,484</span> cortical vertices per timepoint</li>
+            <li>5 Glasser-Yeo functional ROI groups</li>
+            <li>YOLOv8 + CLIP object-to-activation correlation</li>
+          </ul>
+          <ul class="tags"><li>V-JEPA2</li><li>YOLOv8</li><li>CLIP</li><li>FastAPI</li><li>Next.js</li><li>CUDA</li></ul>
+        </article>
+
+        <article class="card" data-reveal data-short="ToneSpeech">
+          <div class="card-top"><h2 class="card-title">ToneSpeech</h2><span class="card-venue">Real-time ASL → expressive speech</span></div>
+          <p class="card-sub">Sign language into Zoom, Teams &amp; Meet</p>
+          <p class="card-desc">A desktop app that translates ASL into emotionally expressive spoken audio in real time and routes it as a virtual microphone into video calls, no captions, no screen sharing. Includes a FACS-grounded action-unit detector built from scratch.</p>
+          <ul class="card-metrics">
+            <li>MediaPipe Face Mesh, <span class="hl">468</span> landmarks</li>
+            <li>AU vector → LLM → SSML → Azure Neural TTS</li>
+            <li>Captures not just what was signed, but how</li>
+          </ul>
+          <ul class="tags"><li>MediaPipe</li><li>Azure Neural TTS</li><li>SSML</li><li>OpenAI API</li><li>PyQt6</li><li>VB-Cable</li></ul>
+        </article>
+
+        <article class="card" data-reveal data-short="Clinical Trials">
+          <div class="card-top"><h2 class="card-title">Clinical Trial Outcome Predictor</h2><span class="card-venue">Protocol text → success probability + reasons</span></div>
+          <p class="card-sub">Fine-tuned BioBERT with a Gemini explainability layer</p>
+          <p class="card-desc">Fine-tuned BioBERT on 472 completed Phase 2/3 trials to predict success from protocol descriptions, with a Gemini layer that generates natural-language explanations, confidence scores, and risk factors.</p>
+          <ul class="card-metrics">
+            <li><span class="hl">84.5%</span> accuracy · 91.6% F1 · 97.5% recall</li>
+            <li>Across cancer, cardiovascular, neurological, respiratory</li>
+            <li>Real-time Gradio interface with follow-up Q&amp;A</li>
+          </ul>
+          <ul class="tags"><li>BioBERT</li><li>Google Gemini</li><li>Gradio</li><li>ClinicalTrials.gov API</li></ul>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/app.bundle.js" defer></script>
+  <script>setTimeout(function(){if(!window.__siteReady){document.documentElement.classList.remove("reveal-on");}},1500);</script>
+</body>
+</html>

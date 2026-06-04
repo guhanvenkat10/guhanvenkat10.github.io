@@ -1,0 +1,341 @@
+/* =============================================================
+   Guhan Venkat — Personal Portfolio
+   Tokens, reset, cursor, overlay, 50/50 sticky layout.
+   ============================================================= */
+
+:root {
+  --bg: #0c0c0c;
+  --text: #f0ece4;
+  --text-dim: rgba(240, 236, 228, 0.55);
+  --text-faint: rgba(240, 236, 228, 0.30);
+  --lime: #c8f542;
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: 'DM Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html { scroll-behavior: auto; }
+
+body {
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+::selection { background: var(--lime); color: var(--bg); }
+
+/* ---------- Global Rainbow River canvas (z-index 0, behind everything) ---------- */
+#river-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Per-chapter canvas wrappers, each pinned to the right 50vw ---------- */
+.chapter-canvas-wrap {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms ease;
+  z-index: 1;
+}
+.chapter-canvas-wrap.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.chapter-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+main { position: relative; z-index: 2; width: 50vw; }
+
+/* ---------- Custom cursor ---------- */
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.cursor-ring {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--text);
+  background: transparent;
+  transition: width 280ms cubic-bezier(.4,.2,.2,1),
+              height 280ms cubic-bezier(.4,.2,.2,1),
+              background-color 280ms,
+              border-color 280ms;
+  mix-blend-mode: difference;
+}
+.cursor-ring.is-hover {
+  width: 12px; height: 12px;
+  background: var(--lime);
+  border-color: var(--lime);
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  body, a, button, [role="button"] { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ---------- Overlay (top corners) ---------- */
+.overlay {
+  position: fixed;
+  z-index: 200;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text);
+  mix-blend-mode: difference;
+}
+.overlay-tl { top: 22px; left: 24px; }
+.overlay-tr { top: 22px; right: 24px; }
+
+/* ============================================================
+   Chapter sections — single column in the left 50vw
+   ============================================================ */
+.chapter {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 12vh 6vw 12vh 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ch-content {
+  position: relative;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ch-text-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-faint);
+  margin-bottom: 28px;
+}
+
+.ch-beat,
+.ch-beat-block {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 34px);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+  margin: 20vh 0;
+}
+.ch-beat:first-of-type,
+.ch-beat-block:first-of-type { margin-top: 0; }
+.ch-beat:last-of-type,
+.ch-beat-block:last-of-type { margin-bottom: 0; }
+
+.ch-beat-block .ch-lab {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.ch-beat-block .ch-beat-body {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 34px);
+  line-height: 1.32;
+}
+.ch-climax {
+  font-size: clamp(22px, 2.7vw, 38px);
+}
+
+/* ============================================================
+   CH 01 — HERO
+   ============================================================ */
+.chapter-01 {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 6vw;
+  justify-content: center;
+}
+.hero-content {
+  max-width: none;
+  align-items: flex-start;
+}
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(64px, 11vw, 180px);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-shadow: 0 0 24px rgba(12, 12, 12, 0.55);
+}
+.hero-line { display: block; }
+.hero-line .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+  will-change: transform, opacity;
+}
+.hero-subtitle {
+  margin-top: 36px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ============================================================
+   CH 02 — ABOUT
+   ============================================================ */
+.about-content { gap: 28px; max-width: 640px; }
+.about-line {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(30px, 4.4vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  overflow: hidden;
+}
+.about-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+.about-meta {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  opacity: 0;
+}
+.about-meta:first-of-type { margin-top: 56px; }
+
+/* ============================================================
+   CH 07 — CONTACT
+   ============================================================ */
+.chapter-07 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 12vh 6vw;
+}
+.contact-content { width: 100%; max-width: 720px; align-items: flex-start; }
+.contact-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 48px;
+  text-shadow: 0 0 24px rgba(12, 12, 12, 0.6);
+}
+.contact-email {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
+}
+.contact-email::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--text);
+  clip-path: inset(0 100% 0 0);
+  -webkit-clip-path: inset(0 100% 0 0);
+  transition: clip-path 300ms ease-out;
+}
+.contact-email:hover::after {
+  clip-path: inset(0 0% 0 0);
+  -webkit-clip-path: inset(0 0% 0 0);
+}
+.contact-socials {
+  margin-top: 72px;
+  display: flex;
+  gap: 36px;
+}
+.contact-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  transition: color 200ms;
+}
+.contact-link:hover { color: var(--text); }
+
+/* ============================================================
+   Lime accent — exactly three typographic moments
+   (Ch03 Real-time · Ch05 a reason · Ch06 voice)
+   ============================================================ */
+.lime { color: var(--lime); }
+
+/* ============================================================
+   Responsive — collapse to single column on narrow screens
+   ============================================================ */
+@media (max-width: 900px) {
+  main { width: 100vw; }
+  .chapter-canvas-wrap {
+    position: relative;
+    right: auto; top: auto;
+    width: 100vw; height: 60vh;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hero-name { font-size: clamp(56px, 14vw, 140px); }
+  .contact-title { font-size: clamp(40px, 10vw, 96px); }
+}

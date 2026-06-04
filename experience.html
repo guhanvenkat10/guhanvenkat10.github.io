@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience · Guhan Venkat</title>
+  <meta name="description" content="Research, leadership, and education for Guhan Venkat, four labs across UPenn and CHOP, plus fundraising and STEM nonprofit leadership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("reveal-on")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="river-canvas" aria-hidden="true"></canvas>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a class="nav-brand" href="index.html">GV</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="index.html">Me</a></li>
+      <li><a href="projects.html" data-page="projects.html">Projects</a></li>
+      <li><a href="experience.html" data-page="experience.html">Experience</a></li>
+      <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <div class="page">
+      <header class="page-head" data-reveal>
+        <span class="kicker">Where I've worked</span>
+        <h1 class="page-title">Experience</h1>
+        <p class="page-sub">Four research roles across UPenn and CHOP, plus the leadership and school behind them.</p>
+      </header>
+
+      <div class="neuron" id="neuron" aria-hidden="true">
+        <p class="pnet__hint">Hover a node to expand a role</p>
+        <canvas class="pnet__canvas"></canvas>
+        <div class="pnet__panel" id="neuron-panel"></div>
+      </div>
+
+      
+      <section class="group">
+        <h2 class="sub-head" data-reveal>Research</h2>
+        <ol class="entries">
+          <li class="entry" data-reveal data-node="Eisch Lab">
+            <div class="entry-head">
+              <h3 class="entry-role">Research Assistant</h3>
+              <span class="entry-org">Eisch Lab · UPenn / CHOP</span>
+              <span class="entry-date">Jan 2026 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li><strong>ROI analysis software.</strong> Built a no-code GUI that runs raw SLEAP body-part predictions through a configurable ROI pipeline, cutting out manual annotation entirely.</li>
+              <li><strong>Behavioral tracking pipeline.</strong> Wired interaction scoring, locomotion speed, and head-direction tracking into one real-time pipeline for hippocampal dentate-gyrus experiments.</li>
+            </ul>
+          </li>
+          <li class="entry" data-reveal data-node="Zebrafish ID">
+            <div class="entry-head">
+              <h3 class="entry-role">Research Engineer</h3>
+              <span class="entry-org">University of Pennsylvania</span>
+              <span class="entry-date">Jan 2026 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li><strong>Zebrafish ID model.</strong> Training a deep-learning model to tell apart 80,000+ individual zebrafish by stripe pattern, making it possible to track the same fish across weeks of vascular-development work.</li>
+              <li><strong>Local data pipeline.</strong> Built an on-device imaging and labeling system to handle the data volume the model needed, no cloud dependency.</li>
+            </ul>
+          </li>
+          <li class="entry" data-reveal data-node="Mukherjee Lab">
+            <div class="entry-head">
+              <h3 class="entry-role">Research Assistant</h3>
+              <span class="entry-org">Mukherjee Lab · CHOP / UPenn</span>
+              <span class="entry-date">Feb 2026 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li><strong>Schizophrenia phenotyping model.</strong> Building a model that reads fine-grained facial landmarks in mice to find expression patterns tied to schizophrenia-related emotional states.</li>
+              <li><strong>Circuit-mapping pipeline.</strong> Connecting those predictions to prefrontal-hippocampal circuit disruption seen in mouse models of neurodevelopmental disorders.</li>
+            </ul>
+          </li>
+          <li class="entry" data-reveal data-node="Presonance">
+            <div class="entry-head">
+              <h3 class="entry-role">ML Intern</h3>
+              <span class="entry-org">Presonance</span>
+              <span class="entry-date">Apr 2026 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li><strong>Neural prediction pipeline.</strong> Training and optimizing the core model that simulates human brain response to short-form video, <span class="hl">0.827 AUC</span> on top-vs-bottom-quartile viral prediction across 437 real-world reels.</li>
+              <li><strong>Model optimization.</strong> Improving inference speed and accuracy on frame-level engagement and buyer-intent models for per-second brain-state diagnostics.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="group">
+        <h2 class="sub-head" data-reveal>Leadership</h2>
+        <ol class="entries">
+          <li class="entry" data-reveal data-node="Relay for Life">
+            <div class="entry-head">
+              <h3 class="entry-role">Event Lead</h3>
+              <span class="entry-org">Relay for Life · Bridgewater, NJ</span>
+              <span class="entry-date">Feb 2025 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li><strong>Raised roughly <span class="hl">$56,000</span> for cancer research</strong>, wrote sponsorship proposals, secured donors, and ran the full fundraising pipeline for a large community event.</li>
+              <li>Managed volunteers, booth logistics, and day-of operations, and put together cancer-awareness programming for attendees.</li>
+            </ul>
+          </li>
+          <li class="entry" data-reveal data-node="NexGen STEM">
+            <div class="entry-head">
+              <h3 class="entry-role">Financial Officer → Incoming President</h3>
+              <span class="entry-org">NexGen STEM</span>
+              <span class="entry-date">Sept 2024 → Present</span>
+            </div>
+            <ul class="entry-points">
+              <li>Wrote grant proposals that funded <span class="hl">1,500+ STEM kits</span> for underserved kids, while managing the budget and logistics across several simultaneous projects.</li>
+              <li>Led a trip to Senegal teaching students water-purification science; taking over as sole President in September 2026.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="group">
+        <h2 class="sub-head" data-reveal>Education &amp; Awards</h2>
+        <div class="edu-grid">
+          <div class="entry" data-reveal data-node="Somerset Vo-Tech">
+            <div class="entry-head">
+              <h3 class="entry-role">Somerset County Vocational &amp; Technical School</h3>
+              <span class="entry-org">Academy of Health and Medical Sciences</span>
+              <span class="entry-date">Expected Jun 2028</span>
+            </div>
+            <p class="entry-note">GPA 4.0 unweighted</p>
+          </div>
+          <ul class="awards" data-reveal>
+            <li><span class="award-dot"></span>Rutgers High School Science Symposium, Finalist (AI / oncology)</li>
+            <li><span class="award-dot"></span>Entrepreneurship State Competition, 2nd Place</li>
+            <li><span class="award-dot"></span>Basic Life Safety Certified (CPR / AED)</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/app.bundle.js" defer></script>
+  <script>setTimeout(function(){if(!window.__siteReady){document.documentElement.classList.remove("reveal-on");}},1500);</script>
+</body>
+</html>
